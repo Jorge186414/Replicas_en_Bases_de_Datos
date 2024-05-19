@@ -18,6 +18,7 @@
             session_start();
             $datosUsuario = mysqli_fetch_assoc($ejecutarConsulta);
             // Una vez iniciada la sesion creamos la variable de sesion
+            $_SESSION['iduser'] = $datosUsuario['idusuario'];
             $_SESSION['user'] = $datosUsuario['nombreusuario'];
             $_SESSION['userape1'] = $datosUsuario['apellidopaterno'];
             $_SESSION['userape2'] = $datosUsuario['apellidomaterno'];
