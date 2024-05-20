@@ -1,8 +1,8 @@
 <?php
     # Datos del servidor local de MySQL
     $servidor = "localhost";
-    $usuario = "jorge";
-    $contrasenia = "luffy1464";
+    $usuario = "root";
+    $contrasenia = "1464";
     $base_de_datos = "lista_de_tareas";
 
     # Conexion al servidor de MysSQL
