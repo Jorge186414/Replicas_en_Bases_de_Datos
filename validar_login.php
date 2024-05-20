@@ -9,7 +9,7 @@
         $user = $_POST['txtEmail'];
         $password = $_POST['txtContra'];
         // Mandamos llamar al procedimiento almacenado
-        $consulta = "CALL inicio_sesion('$user', '$password')";
+        $consulta = "CALL iniciar_sesion('$user', '$password')";
         // Ejecutamos la consulta
         $ejecutarConsulta = mysqli_query($conexion, $consulta);
 
