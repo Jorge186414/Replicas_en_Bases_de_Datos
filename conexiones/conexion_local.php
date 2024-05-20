@@ -1,15 +1,31 @@
 <?php
     # Datos del servidor local de MySQL
-    $servidor = "localhost";
-    $usuario = "root";
-    $contrasenia = "1464";
-    $base_de_datos = "lista_de_tareas";
+    $servidorP = "localhost";
+    $usuarioP = "root";
+    $contraseniaP = "1464";
+    $base_de_datosP = "lista_de_tareas";
 
-    # Conexion al servidor de MysSQL
-    $conexion = mysqli_connect($servidor, $usuario, $contrasenia, $base_de_datos);
-    # Validacion de la conexion
-    if(!$conexion){
-        echo "Problemas al conectar con la base de datos";
-    }else{
+    # Datos del servidor remoto de MySQL
+    $servidorS = "ip_remota";
+    $usuarioS = "servidorRemoto";
+    $contraseniaS = "1234";
+    $base_de_datosS = "lista_de_tareas";
+
+    # Intentar conectar al servidor local
+    $conexion = @mysqli_connect($servidorP, $usuarioP, $contraseniaP, $base_de_datosP);
+
+    if (!$conexion) {
+        # Intentar conectar al servidor remoto
+        $conexion = @mysqli_connect($servidorS, $usuarioS, $contraseniaS, $base_de_datosS);
+        
+        if ($conexion) {
+            $_SESSION['host'] = $servidorS;
+            echo "Conectado desde el servidor remoto: " . $_SESSION['host'];
+        } else {
+            echo "Error en la conexión remota: " . mysqli_connect_error();
+        }
+    } else {
+        $_SESSION['host'] = $servidorP;
+        echo "Conectado desde el servidor local: " . $_SESSION['host'];
     }
 ?>
