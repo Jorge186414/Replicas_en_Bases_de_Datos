@@ -58,6 +58,7 @@ session_start();
                 </table>
 
                 <div class="ml-80 mr-80">
+                    <p class="text-sky-400/100 mt-8">Conectado desde: <?php echo $_SESSION['host']?></p>
                     <a href="logout.php" class="mt-10 block w-full text-white bg-[#60a5fa] hover:bg-[#1d4ed8] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Cerrar sesión</a>
                 </div>
             </div>
